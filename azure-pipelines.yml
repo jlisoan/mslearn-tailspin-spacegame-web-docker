@@ -22,7 +22,7 @@ stages:
         buildContext: $(Build.Repository.LocalPath)
         repository: $(webRepository)
         dockerfile: '$(Build.SourcesDirectory)/Tailspin.SpaceGame.Web/Dockerfile'
-        containerRegistry: 'Resource Manager - Tailspin - Space Game'
+        containerRegistry: 'Container Registry Connection'
         tags: |
           $(tag)
 
@@ -39,6 +39,6 @@ stages:
     steps:
     - task: AzureWebAppContainer@1
       inputs:
-        azureSubscription: 'Visual Studio Enterprise Subscription(04721b46-e767-427e-bbfd-43b035a16502)'
+        azureSubscription: 'Resource Manager - Tailspin - Space Game'
         appName: '$(WebAppName)'
         containers: '$(RegistryName)/$(webRepository):$(build.buildId)'
